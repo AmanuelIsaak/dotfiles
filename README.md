@@ -46,7 +46,7 @@ Claude Code and Codex share one set of instructions, skills and guardrails.
 | `.agents/skills-disabled` | Skills that only wrapped a CLI; neither agent loads them |
 | `.agents/context-meter` | Context-window bar for both agents and herdr pane titles |
 
-**Jev hooks** (in [`jev/`](jev/); each one lets everything through if Jev is unreachable):
+**Jev hooks** (in the private [jev](https://github.com/AmanuelIsaak/jev) repo; each one lets everything through if Jev is unreachable):
 
 - `skill_picker`: suggests the one skill that fits the prompt, only from skills that agent actually loads.
 - `rule_enforcer`: checks edits against a repo's `.jev-rules.md`, for example no secrets and no edits to existing migrations.
@@ -80,7 +80,7 @@ The full picture is in **[docs/ai-architecture.md](docs/ai-architecture.md)**: a
    ```
 
 4. **Add the secrets and dependencies:**
-   - Link Jev: `ln -s "$PWD/jev" ~/.agents/jev`, then follow [`jev/README.md`](jev/README.md) (key in `.env`, `npm install`, `install.sh`).
+   - Clone Jev: `git clone git@github.com:AmanuelIsaak/jev.git ~/repos/jev && ln -s ~/repos/jev ~/.agents/jev`, then follow its README (key in `.env`, `npm install`, `install.sh`).
    - Reinstall `app-store-screenshots` from the source in `home/.agents/.skill-lock.json`. Sync skips it because of its size.
 5. **Trust the Codex hooks** with `/hooks` in Codex, and reinstall herdr's Codex integration.
 
@@ -104,4 +104,4 @@ git status                            # review, then commit
 
 ## License
 
-MIT, see `LICENSE`. Subfolders with their own license (such as `jev/fast-jev-compaction`) keep it.
+MIT, see `LICENSE`.

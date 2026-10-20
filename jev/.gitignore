@@ -1,7 +1,0 @@
-.env
-log/
-__pycache__/
-node_modules/
-dist/
-*.bak-*
-.DS_Store

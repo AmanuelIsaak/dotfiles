@@ -42,7 +42,7 @@ copy .claude/skills "${COMMON[@]}" --exclude synced --exclude app-store-screensh
 copy .codex/hooks.json
 copy .codex/AGENTS.md
 
-# Shared skills (Jev lives in jev/; ~/.agents/jev is a symlink to it)
+# Shared skills (Jev has its own private repo; ~/.agents/jev links to ~/repos/jev)
 copy .agents/AGENTS.md
 copy .agents/.skill-lock.json
 copy .agents/skills "${COMMON[@]}"
@@ -53,9 +53,9 @@ copy .agents/context-meter "${COMMON[@]}"
 touch "$HOME/.Brewfile"
 brew bundle dump --file=- --force | awk 'NR==FNR { skip[$0]=1; next } /^#/ { c=$0; next } !skip[$0] { if (c) print c; print } { c="" }' "$HOME/.Brewfile" - > "$REPO/Brewfile"
 
-# Secret scan over home/ and jev/.
+# Secret scan over home/.
 PATTERNS='(sk-[A-Za-z0-9_-]{20,}|sk-ant-[A-Za-z0-9_-]{20,}|ghp_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{30,}|vck_[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|-----BEGIN [A-Z ]*PRIVATE KEY-----|eyJ[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,}\.|(API_KEY|TOKEN|SECRET|PASSWORD|_ID)=[^[:space:]$"'"'"'{}<]{8,})'
-if hits=$(grep -rIlE --exclude-dir=node_modules --exclude-dir=log --exclude=.env "$PATTERNS" "$DEST" "$REPO/jev" 2>/dev/null); then
+if hits=$(grep -rIlE --exclude-dir=node_modules --exclude-dir=log --exclude=.env "$PATTERNS" "$DEST" 2>/dev/null); then
   echo "Possible secrets found; fix before committing:" >&2
   echo "$hits" | sed "s|$REPO/||" >&2
   exit 1
