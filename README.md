@@ -55,6 +55,8 @@ Claude Code and Codex share one set of instructions, skills and guardrails.
 
 **Context meter:** shows how full the context is, e.g. `▰▰▰▰▰▰▰▰▱▱ 76k/100k · 8% of 1M`. It turns yellow at 60k and red with a `→ /compact` hint at 100k. Change the limits with `CTX_WARN_TOKENS` and `CTX_HIGH_TOKENS`.
 
+Codex CLI uses its built-in footer instead of a custom status-line command. Set `tui.status_line = ["model-with-reasoning", "used-tokens", "context-window-size", "context-used", "git-branch", "five-hour-limit"]` in the local `~/.codex/config.toml` to keep the token count, window size and percentage visible. The bar and threshold hint appear in herdr pane titles through the Codex hooks; Codex's own footer cannot render them.
+
 The full picture is in **[docs/ai-architecture.md](docs/ai-architecture.md)**: a diagram of how the prompt, hooks, skills, CLIs, plugins, MCP connectors and CI fit together.
 
 ## Working habits
