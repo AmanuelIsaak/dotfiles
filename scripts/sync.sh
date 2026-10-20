@@ -36,7 +36,7 @@ copy .claude/settings.json
 copy .claude/hooks "${COMMON[@]}"
 copy .claude/plugins/installed_plugins.json
 copy .claude/plugins/known_marketplaces.json
-copy .claude/skills "${COMMON[@]}" --exclude synced
+copy .claude/skills "${COMMON[@]}" --exclude synced --exclude app-store-screenshots  # large; reinstall from .skill-lock.json
 
 # Codex (config.toml stays local: machine paths, MCP connections, hook trust state)
 copy .codex/hooks.json

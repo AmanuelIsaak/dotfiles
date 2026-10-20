@@ -81,6 +81,7 @@ The full picture is in **[docs/ai-architecture.md](docs/ai-architecture.md)**: a
 
 4. **Add the secrets and dependencies:**
    - Link Jev: `ln -s "$PWD/jev" ~/.agents/jev`, then follow [`jev/README.md`](jev/README.md) (key in `.env`, `npm install`, `install.sh`).
+   - Reinstall `app-store-screenshots` from the source in `home/.agents/.skill-lock.json`. Sync skips it because of its size.
 5. **Trust the Codex hooks** with `/hooks` in Codex, and reinstall herdr's Codex integration.
 
 ## Keeping it up to date
