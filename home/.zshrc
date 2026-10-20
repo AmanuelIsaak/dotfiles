@@ -35,16 +35,19 @@ PROMPT='%B%(?:%F{green}➜:%F{red}➜)%f%b %F{cyan}%c%f $(git_prompt_info)'
 export PATH="$HOME/.local/bin:$PATH"
 
 # Omarchy-inspired shell tools — added 2026-09-14
-alias ls="eza -lh --group-directories-first"
-alias lsa="eza -lha --group-directories-first"
-alias lt="eza --tree --level=2 --long --git"
-alias lta="eza --tree --level=2 --long --git --all"
-alias cat='bat --paging=never'
-alias grep='rg'
-alias find='fd'
-alias top='btop'
+# Skip the aliases in agent shells (Claude Code sets CLAUDECODE=1); agents expect POSIX ls/cat/grep/find/cd.
 eval "$(zoxide init zsh)"
-alias cd='z'
+if [[ -z $CLAUDECODE ]]; then
+  alias ls="eza -lh --group-directories-first"
+  alias lsa="eza -lha --group-directories-first"
+  alias lt="eza --tree --level=2 --long --git"
+  alias lta="eza --tree --level=2 --long --git --all"
+  alias cat='bat --paging=never'
+  alias grep='rg'
+  alias find='fd'
+  alias top='btop'
+  alias cd='z'
+fi
 source /opt/homebrew/opt/fzf/shell/key-bindings.zsh
 source /opt/homebrew/opt/fzf/shell/completion.zsh
 # Grey inline suggestions from history (→ or Ctrl-E accepts, Alt-F takes one word) — from omerxx/dotfiles
