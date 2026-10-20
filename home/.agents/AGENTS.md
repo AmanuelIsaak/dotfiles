@@ -15,7 +15,7 @@ Adapted from Pstack's unslop skill.
 - Bold sparingly; no bold-label-colon lines that repeat themselves; sentence-case headings; no decorative emoji.
 
 # App playbook (rules for every app)
-- `~/repos/template/app-playbook` holds the stack rules, assets and code examples for all my apps: web (Solid, SvelteKit, Astro; React only for React-only libraries), native mobile (Kotlin Multiplatform with Compose and SwiftUI), and new app types. Start at its `SKILL.md`.
+- `~/repos/app-playbook` holds the stack rules, assets and code examples for all my apps: web (Solid, SvelteKit, Astro; React only for React-only libraries), native mobile (Kotlin Multiplatform with Compose and SwiftUI), and new app types. Start at its `SKILL.md`.
 - New app or stack decision: read `SKILL.md`, then `core/` and the matching `stacks/` module, and create the app with that module's commands (copy the assets, write the examples, replace placeholders). Don't hand-roll a stack the playbook covers.
 - A generic fix or rule found in an app goes into the playbook module too. There is no sync, so apply it by hand in other apps that need it.
 - Keep app-specific code and docs out of the playbook. Skip apps whose stack doesn't fit (e.g. MatchLens: pnpm + Python + Docker).

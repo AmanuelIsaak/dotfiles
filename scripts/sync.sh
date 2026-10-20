@@ -49,6 +49,10 @@ copy .agents/skills "${COMMON[@]}"
 copy .agents/skills-disabled "${COMMON[@]}"
 copy .agents/context-meter "${COMMON[@]}"
 
+# Homebrew packages, minus the private ones listed in ~/.Brewfile (and their description comments).
+touch "$HOME/.Brewfile"
+brew bundle dump --file=- --force | awk 'NR==FNR { skip[$0]=1; next } /^#/ { c=$0; next } !skip[$0] { if (c) print c; print } { c="" }' "$HOME/.Brewfile" - > "$REPO/Brewfile"
+
 # Secret scan over home/ and jev/.
 PATTERNS='(sk-[A-Za-z0-9_-]{20,}|sk-ant-[A-Za-z0-9_-]{20,}|ghp_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{30,}|vck_[A-Za-z0-9]{20,}|AKIA[0-9A-Z]{16}|-----BEGIN [A-Z ]*PRIVATE KEY-----|eyJ[A-Za-z0-9_-]{20,}\.[A-Za-z0-9_-]{20,}\.|(API_KEY|TOKEN|SECRET|PASSWORD|_ID)=[^[:space:]$"'"'"'{}<]{8,})'
 if hits=$(grep -rIlE --exclude-dir=node_modules --exclude-dir=log --exclude=.env "$PATTERNS" "$DEST" "$REPO/jev" 2>/dev/null); then

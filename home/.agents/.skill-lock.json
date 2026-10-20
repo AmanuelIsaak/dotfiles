@@ -189,6 +189,15 @@
       "skillFolderHash": "913b9d37d0d54047dd65222bb8c67b2bf04e3cb87dcad1729068d7a8b2c8c396",
       "installedAt": "2026-09-26T14:02:53.455Z",
       "updatedAt": "2026-09-26T14:02:53.455Z"
+    },
+    "app-store-screenshots": {
+      "source": "ParthJadhav/app-store-screenshots",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/ParthJadhav/app-store-screenshots.git",
+      "skillPath": "skills/app-store-screenshots/SKILL.md",
+      "skillFolderHash": "6cb56ef2a4bd05b651da43dfbc82264124e1e6a6",
+      "installedAt": "2026-10-20T13:00:06.043Z",
+      "updatedAt": "2026-10-20T13:00:06.043Z"
     }
   },
   "dismissed": {

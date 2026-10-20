@@ -93,8 +93,6 @@ brew "supabase/tap/supabase", trusted: true
 cask "android-commandlinetools"
 # Tools for building Android applications
 cask "android-studio"
-# Voice and text chat software
-cask "discord"
 # Collaborative team software
 cask "figma"
 cask "font-ibm-plex-sans"
@@ -107,8 +105,6 @@ cask "obsidian"
 cask "opencode-desktop"
 # Replacement for Docker Desktop
 cask "orbstack"
-# AI-powered answer engine with Personal Computer agent
-cask "perplexity"
 # Move and resize windows using keyboard shortcuts or snap areas
 cask "rectangle"
 # Modified browser that helps in responsive web development
@@ -117,14 +113,10 @@ cask "responsively"
 cask "rstudio"
 # Screen recorder and editor
 cask "screen-studio"
-# Music streaming service
-cask "spotify"
 # Menu bar toolkit with keep-awake, system monitor and volume mixer
 cask "vorssaint"
 # Binary releases of VS Code without MS branding/telemetry/licensing
 cask "vscodium"
-# Native desktop client for WhatsApp
-cask "whatsapp"
 vscode "arrrrny.zed-one-theme"
 vscode "bradlc.vscode-tailwindcss"
 vscode "fwcd.kotlin"
@@ -149,4 +141,3 @@ npm "cf"
 npm "dembrandt"
 npm "neon"
 npm "svelte-language-server"
-npm "vercel"

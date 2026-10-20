@@ -5,7 +5,21 @@
     "MAX_MCP_OUTPUT_TOKENS": "12000"
   },
   "permissions": {
-    "defaultMode": "auto"
+    "defaultMode": "auto",
+    "allow": [
+      "Bash(adb devices)",
+      "Bash(adb exec-out cat /sdcard/ui.xml)",
+      "Bash(adb exec-out screencap -p)",
+      "Bash(adb exec-out uiautomator dump /dev/tty)",
+      "Bash(adb shell uiautomator dump /sdcard/ui.xml)",
+      "Bash(gh project item-list *)",
+      "Bash(gh project list *)",
+      "Bash(jev --help)",
+      "Bash(launchctl list)",
+      "Bash(npm run lint)",
+      "Bash(npm test)",
+      "Bash(xcrun simctl list *)"
+    ]
   },
   "model": "opus",
   "skillOverrides": {
