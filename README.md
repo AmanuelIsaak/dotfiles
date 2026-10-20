@@ -70,7 +70,7 @@ The full picture is in **[docs/ai-architecture.md](docs/ai-architecture.md)**: a
 
 ## Restore on a new Mac
 
-1. **Install the tools:** Ghostty, Neovim, herdr, Claude Code, Codex, and from Homebrew `bat btop eza fd fzf ripgrep zoxide python@3.13`, plus the Android and Java tools the shell config uses. Install the Kotlin LSP from `jetbrains/utils/kotlin-lsp`; Swift uses Xcode's `sourcekit-lsp`.
+1. **Install the tools:** `brew bundle` installs everything in `Brewfile` (CLI tools, apps, VS Code extensions, global npm packages). Then install herdr, Claude Code and Codex. Swift uses Xcode's `sourcekit-lsp`.
 2. **Check machine-specific values in `home/`:** the paths in `.zshrc` and `.codex/hooks.json`, Put IDs such as `CLOUDFLARE_ACCOUNT_ID` and `BUDGETLI_TEAM_ID` (an Apple development team) in `~/.zshrc.local`. `.zshrc` sources it, and sync never copies it.
 3. **Copy the files**, after backing up what's there:
 
@@ -88,11 +88,12 @@ The full picture is in **[docs/ai-architecture.md](docs/ai-architecture.md)**: a
 This repo is a snapshot, not symlinks, so it doesn't update itself. After changing a config:
 
 ```sh
-scripts/sync.sh      # copy live config into home/, drop removed files, scan for secrets
-git status           # review, then commit
+scripts/sync.sh                       # copy live config into home/, drop removed files, scan for secrets
+brew bundle dump --file=Brewfile --force   # after installing or removing a tool
+git status                            # review, then commit
 ```
 
-`sync.sh` stops if anything looks like a secret.
+`sync.sh` stops if anything looks like a secret. A gitleaks pre-commit hook in `.githooks/` blocks any commit that stages one. Enable it once per clone with `git config core.hooksPath .githooks`.
 
 ## Never in this repo
 

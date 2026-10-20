@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Block commits that stage a secret. Enable once per clone: git config core.hooksPath .githooks
+set -euo pipefail
+if ! command -v gitleaks >/dev/null; then
+  echo "gitleaks not installed; run: brew bundle" >&2
+  exit 1
+fi
+exec gitleaks git --pre-commit --staged --redact --no-banner -v
