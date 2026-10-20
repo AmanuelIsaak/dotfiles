@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Jev CLI: thin wrapper over the scripts in ~/.agents/jev/cli.
+set -euo pipefail
+S="$HOME/.agents/jev/cli"
+case "${1:-}" in
+  explore) shift; exec python3 "$S/explore.py" "$@" ;;
+  triage)  shift; exec python3 "$S/triage.py" "$@" ;;
+  logs)    exec tail -n "${2:-20}" "$HOME"/.agents/jev/log/*.log ;;
+  *) cat <<USAGE
+usage: jev explore "<question>" [--dir PATH] [--top N] [--terms a,b]
+       jev triage [git diff args]
+       jev logs [N]
+USAGE
+     [ -z "${1:-}" ] || [ "$1" = -h ] || [ "$1" = --help ] ;;
+esac

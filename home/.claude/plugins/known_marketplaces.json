@@ -1,0 +1,18 @@
+{
+  "claude-plugins-official": {
+    "source": {
+      "source": "github",
+      "repo": "anthropics/claude-plugins-official"
+    },
+    "installLocation": "/Users/aman/.claude/plugins/marketplaces/claude-plugins-official",
+    "lastUpdated": "2026-10-20T11:51:58.510Z"
+  },
+  "fast-jev-compaction": {
+    "source": {
+      "source": "directory",
+      "path": "/Users/aman/.agents/jev/fast-jev-compaction"
+    },
+    "installLocation": "/Users/aman/.agents/jev/fast-jev-compaction",
+    "lastUpdated": "2026-09-29T17:13:08.518Z"
+  }
+}

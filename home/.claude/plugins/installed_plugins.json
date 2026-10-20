@@ -1,0 +1,54 @@
+{
+  "version": 2,
+  "plugins": {
+    "swift-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/aman/.claude/plugins/cache/claude-plugins-official/swift-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-09-29T14:02:12.322Z",
+        "lastUpdated": "2026-09-29T14:02:12.322Z",
+        "gitCommitSha": "fbe07fb6ce7d51d8e86ca6efdf050059894cdb80"
+      }
+    ],
+    "fast-jev-compaction@fast-jev-compaction": [
+      {
+        "scope": "user",
+        "installPath": "/Users/aman/.claude/plugins/cache/fast-jev-compaction/fast-jev-compaction/0.3.0",
+        "version": "0.3.0",
+        "installedAt": "2026-10-01T18:16:09.966Z",
+        "lastUpdated": "2026-10-01T18:16:09.966Z"
+      }
+    ],
+    "kotlin-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/aman/.claude/plugins/cache/claude-plugins-official/kotlin-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-10-05T12:20:57.491Z",
+        "lastUpdated": "2026-10-05T12:20:57.491Z",
+        "gitCommitSha": "d182ca456ca09d31d139f7d3818d1d333b103cce"
+      }
+    ],
+    "lua-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/aman/.claude/plugins/cache/claude-plugins-official/lua-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-10-08T11:46:49.705Z",
+        "lastUpdated": "2026-10-08T11:46:49.705Z",
+        "gitCommitSha": "b78ac49cdc6b3d7b61c4439470e311f4291265b1"
+      }
+    ],
+    "typescript-lsp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "/Users/aman/.claude/plugins/cache/claude-plugins-official/typescript-lsp/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-10-12T21:50:14.047Z",
+        "lastUpdated": "2026-10-12T21:50:14.047Z",
+        "gitCommitSha": "f359d43b406057f1a8cdbc4ea93b827642c162e6"
+      }
+    ]
+  }
+}

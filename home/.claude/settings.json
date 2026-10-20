@@ -1,0 +1,135 @@
+{
+  "env": {
+    "CLAUDE_CODE_ENABLE_FUNCTION_HOOKS": "1",
+    "BASH_MAX_OUTPUT_LENGTH": "15000",
+    "MAX_MCP_OUTPUT_TOKENS": "12000"
+  },
+  "permissions": {
+    "defaultMode": "auto"
+  },
+  "model": "opus",
+  "skillOverrides": {
+    "cavecrew": "off",
+    "caveman": "off",
+    "caveman-compress": "off",
+    "caveman-discover": "off",
+    "caveman-evidence-review": "off",
+    "caveman-explore": "off",
+    "caveman-help": "off",
+    "caveman-learn": "off",
+    "caveman-manage": "off",
+    "caveman-optimize": "off",
+    "caveman-review": "off",
+    "caveman-setup": "off",
+    "caveman-stats": "off"
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /Users/aman/.agents/jev/hooks/skill_picker.py",
+            "timeout": 8
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /Users/aman/.agents/jev/hooks/rule_enforcer.py",
+            "timeout": 15
+          }
+        ]
+      },
+      {
+        "matcher": "Bash|mcp__.*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /Users/aman/.agents/jev/hooks/action_gate.py",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "^(startup|resume|clear|compact|fork)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/Users/aman/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 /Users/aman/.agents/jev/hooks/done_check.py",
+            "timeout": 12
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "python3 /Users/aman/.agents/context-meter/ctx.py claude",
+    "padding": 0
+  },
+  "enabledPlugins": {
+    "swift-lsp@claude-plugins-official": true,
+    "fast-jev-compaction@fast-jev-compaction": true,
+    "kotlin-lsp@claude-plugins-official": true,
+    "lua-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "fast-jev-compaction": {
+      "source": {
+        "source": "directory",
+        "path": "/Users/aman/.agents/jev/fast-jev-compaction"
+      }
+    }
+  },
+  "effortLevel": "low",
+  "theme": "auto",
+  "agentPushNotifEnabled": true,
+  "autoMode": {
+    "environment": [
+      "### Org-wide",
+      "**Organization**: None configured",
+      "**Cloud provider(s)**: None configured",
+      "**Repository visibility**: Private (github.com:AmanuelIsaak/budgetli.git, verified via gh)",
+      "**Internal sharing / snippet hosting**: None configured — treat public paste/gist services as outside the trust boundary",
+      "**Secrets management**: CI secrets referenced by name only in this repo's workflows: ANDROID_KEYSTORE_BASE64, ANDROID_KEYSTORE_PASSWORD, ANDROID_KEY_ALIAS, ANDROID_KEY_PASSWORD (values not present; treat as credential material)",
+      "**Default / protected branches**: Default branch main; no protected branches listed and rulesets not queryable here — treat main as potentially protected by an org ruleset even though none is confirmed",
+      "**CI/CD deploy targets**: None configured",
+      "**Network posture**: None configured",
+      "**Host containment**: None configured — assume Claude Code runs on an ordinary developer machine or CI runner with open internet",
+      "**Source control**: The trusted repo (github.com:AmanuelIsaak/budgetli.git) and its remote(s) only",
+      "**Trusted internal domains**: None configured",
+      "**Trusted cloud buckets**: None configured",
+      "**Key internal services**: None configured",
+      "**Internal package registry**: None configured",
+      "**Sensitive data locations & audiences**: any file or store holding personal data, confidential business data, credentials, regulated data, or similarly sensitive material — including the four ANDROID_* CI secret names referenced in this repo's workflows; preserve exact handles when known and share only with audiences cleared at the [named+specifics] bar",
+      "**Data retention / declassification**: None configured",
+      "**Sensitive remote targets**: any namespace, host, or container whose name carries prod or production as a whole word or name segment (hyphen/underscore/dot-delimited — e.g. matches prod-db, not producer)",
+      "**Protected deployment namespaces / environments**: None configured — fall back to the Sensitive remote targets heuristic",
+      "**Protected IaC scopes**: IAM, RBAC, networking, quota, and node-pool resources; anything whose name or tag carries prod or production as a whole word or name segment",
+      "### User-specific",
+      "**Primary use of Claude Code**: software development (Kotlin Multiplatform mobile app — Android/iOS)",
+      "**Trusted repo**: /Users/aman/repos/budgetli and its remote github.com:AmanuelIsaak/budgetli.git (private) — confidential material is fine here, but secrets/credentials are never cleared into it by visibility alone",
+      "**Org-specific CLIs**: None configured — project-specific tools observed: rg (code search), ./scripts/dev.py (project dev helper)"
+    ]
+  }
+}

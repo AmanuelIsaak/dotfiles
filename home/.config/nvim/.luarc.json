@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LuaLS/vscode-lua/master/setting/schema.json",
+  "runtime.version": "LuaJIT",
+  "diagnostics.globals": ["vim", "Snacks", "LazyVim"],
+  "workspace.checkThirdParty": false,
+  "workspace.library": [
+    "/opt/homebrew/share/nvim/runtime/lua",
+    "${3rd}/luv/library",
+    "~/.local/share/nvim/lazy/lazy.nvim/lua",
+    "~/.local/share/nvim/lazy/LazyVim/lua",
+    "~/.local/share/nvim/lazy/snacks.nvim/lua"
+  ]
+}

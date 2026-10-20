@@ -1,0 +1,4 @@
+# Follow the terminal palette in light and dark mode.
+--theme=auto
+--theme-dark="ansi"
+--theme-light="ansi"

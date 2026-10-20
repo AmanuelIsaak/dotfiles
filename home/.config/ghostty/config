@@ -1,0 +1,10 @@
+# Use the Tokyo Night variants in theme.conf for macOS light and dark mode.
+config-file = theme.conf
+
+# Larger default font size
+font-size = 18
+
+# From omerxx/dotfiles
+mouse-hide-while-typing = true
+background-opacity = 0.95
+background-blur-radius = 20

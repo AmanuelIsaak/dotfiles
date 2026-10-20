@@ -1,0 +1,10 @@
+.DS_Store
+*.log
+**/__pycache__/
+**/.git/
+**/.env
+**/session*.json
+**/session-snapshots/
+**/data/
+**/.zshrc.local
+**/*.local

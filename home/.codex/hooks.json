@@ -1,0 +1,101 @@
+{
+  "hooks": {
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "command": "python3 /Users/aman/.agents/jev/hooks/codex_compaction.py",
+            "timeout": 5,
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "PostCompact": [
+      {
+        "hooks": [
+          {
+            "command": "python3 /Users/aman/.agents/jev/hooks/codex_compaction.py",
+            "timeout": 5,
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "python3 /Users/aman/.agents/jev/hooks/rule_enforcer.py",
+            "timeout": 15,
+            "type": "command"
+          }
+        ],
+        "matcher": "apply_patch|Edit|Write"
+      },
+      {
+        "hooks": [
+          {
+            "command": "python3 /Users/aman/.agents/jev/hooks/action_gate.py",
+            "timeout": 15,
+            "type": "command"
+          }
+        ],
+        "matcher": "Bash|exec_command|mcp__.*"
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "command": "python3 /Users/aman/.agents/jev/hooks/done_check.py",
+            "timeout": 15,
+            "type": "command"
+          }
+        ]
+      },
+      {
+        "hooks": [
+          {
+            "command": "python3 /Users/aman/.agents/context-meter/ctx.py codex",
+            "timeout": 5,
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "command": "bash '/Users/aman/.codex/herdr-agent-state.sh' session",
+            "timeout": 10,
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "command": "python3 /Users/aman/.agents/jev/hooks/skill_picker.py",
+            "timeout": 8,
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "command": "python3 /Users/aman/.agents/context-meter/ctx.py codex",
+            "timeout": 5,
+            "type": "command"
+          }
+        ]
+      }
+    ]
+  }
+}

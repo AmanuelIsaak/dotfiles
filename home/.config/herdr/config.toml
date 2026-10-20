@@ -1,0 +1,43 @@
+# Ported from ~/.config/tmux/tmux.conf (2026-10-06)
+onboarding = false
+
+[terminal]
+# tmux: split-window -c "#{pane_current_path}"
+new_cwd = "follow"
+
+[keys]
+# tmux: prefix C-Space
+prefix = "ctrl+space"
+
+# tmux: bind h/j/k/l select-pane + bind -n M-arrows
+focus_pane_left  = ["prefix+h", "alt+left"]
+focus_pane_down  = ["prefix+j", "alt+down"]
+focus_pane_up    = ["prefix+k", "alt+up"]
+focus_pane_right = ["prefix+l", "alt+right"]
+
+# tmux: bind -n S-Left/S-Right and M-H/M-L for prev/next window
+previous_tab = ["prefix+p", "shift+left", "alt+shift+h"]
+next_tab     = ["prefix+n", "shift+right", "alt+shift+l"]
+
+# tmux: " = stacked split, % = side-by-side split (herdr defaults kept too)
+split_horizontal = ["prefix+minus", "prefix+quote"]
+split_vertical   = ["prefix+v", "prefix+percent"]
+
+[theme]
+# Tokyo Night switches with the system appearance.
+name = "tokyo-night"
+auto_switch = true
+dark_name = "tokyo-night"
+light_name = "tokyo-night-day"
+
+[ui]
+# tmux: status bar at bottom, right side shows date + time
+tab_bar_position = "bottom"
+tab_bar_right = [
+  { type = "datetime", format = "%Y-%m-%d" },
+  { type = "datetime", format = "%H:%M" },
+]
+
+status_indicators = "symbols"
+[ui.toast]
+delivery = "herdr"

@@ -1,0 +1,4 @@
+# From omerxx/dotfiles. Local history only (no sync account).
+style = "compact"
+enter_accept = true
+filter_mode_shell_up_key_binding = "directory"
