@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Global pre-commit (core.hooksPath): block staged secrets with gitleaks, then run the repo's own hook.
+# Bypass once with `git commit --no-verify` after checking the finding is a false positive.
+set -e
+if command -v gitleaks >/dev/null; then
+  gitleaks git --pre-commit --staged --redact --no-banner --log-level warn
+fi
+local_hook="$(git rev-parse --git-dir)/hooks/pre-commit"
+if [ -x "$local_hook" ]; then exec "$local_hook" "$@"; fi

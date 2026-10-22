@@ -28,6 +28,8 @@ copy .config/ghostty "${COMMON[@]}"
 copy .config/herdr/config.toml
 copy .config/atuin/config.toml
 copy .config/bat/config
+copy .config/git/ignore
+copy .config/git/hooks "${COMMON[@]}"
 copy .config/nvim "${COMMON[@]}" --exclude README.md
 
 # Claude Code
@@ -46,7 +48,6 @@ copy .codex/AGENTS.md
 copy .agents/AGENTS.md
 copy .agents/.skill-lock.json
 copy .agents/skills "${COMMON[@]}"
-copy .agents/skills-disabled "${COMMON[@]}"
 copy .agents/context-meter "${COMMON[@]}"
 
 # Homebrew packages, minus the private ones listed in ~/.Brewfile (and their description comments).
